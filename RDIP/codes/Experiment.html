@@ -147,6 +147,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		</div>
 		<div>   <input type="button" value="Reform-sentence!" id="reform" />
 		</div>
+		<div>   <input type="button" value="Check correctness of sentence!" id="con" />
+		</div>
 </div>
 </footer>
 
@@ -173,10 +175,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	  {
 	    // loads all the content in the respective
 	    // sections with the corresponding section headings 
-
+            var res = str1.concat(str2).getElementById(con);
             sectionId = $(this).attr('id');
 	    headerId = $("#" + sectionId + "-heading").html();
-	    iconId = $("#" + sectionId + "-icon").html();
+	    iconId = $("#" + sectionId + "-icon").html();.
 
 	    $("#container #experiment-article-navigation ul").
 	      append("<li> <a href=\'#\' id=\'"+ sectionId + 
