@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+.make-row(@gutter: @grid-gutter-width) {
+  // Then clear the floated columns
+  .clearfix();
+
+  @media (min-width: @screen-sm-min) {
+    margin-left:  (@gutter / -2);
+    margin-right: (@gutter / -2);
+  }
+  .row {
+    margin-left:  (@gutter / -2);
+    margin-right: (@gutter / -2);
+  }
+}
+.make-xs-column(@columns; @gutter: @grid-gutter-width) {
+  position: relative;
+  // Prevent columns from collapsing when empty
+  min-height: 1px;
+  // Inner gutter via padding
+  padding-left:  (@gutter / 2);
+  padding-right: (@gutter / 2);
+
+  // Calculate width based on number of columns available
+  @media (min-width: @grid-float-breakpoint) {
+    float: left;
+    width: percentage((@columns / @grid-columns));
+  }
+}
+.make-sm-column(@columns; @gutter: @grid-gutter-width) {
+  position: relative;
+  // Prevent columns from collapsing when empty
+  min-height: 1px;
+  // Inner gutter via padding
+  padding-left:  (@gutter / 2);
+  padding-right: (@gutter / 2);
+
+  @media (min-width: @screen-sm-min) {
+    float: left;
+    width: percentage((@columns / @grid-columns));
+  }
+}
+.make-sm-column-offset(@columns) {
+  @media (min-width: @screen-sm-min) {
+    margin-left: percentage((@columns / @grid-columns));
+  }
+}
+.make-sm-column-push(@columns) {
+  @media (min-width: @screen-sm-min) {
+    left: percentage((@columns / @grid-columns));
+  }
+}
+.make-sm-column-pull(@columns) {
+  @media (min-width: @screen-sm-min) {
+    right: percentage((@columns / @grid-columns));
+  }
+}
+
+.make-md-column(@columns; @gutter: @grid-gutter-width) {
+  position: relative;
+  // Prevent columns from collapsing when empty
+  min-height: 1px;
+  // Inner gutter via padding
+  padding-left:  (@gutter / 2);
+  padding-right: (@gutter / 2);
+
+  // Calculate width based on number of columns available
+  @media (min-width: @screen-md-min) {
+    float: left;
+    width: percentage((@columns / @grid-columns));
+  }
+}
+.make-md-column-offset(@columns) {
+  @media (min-width: @screen-md-min) {
+    margin-left: percentage((@columns / @grid-columns));
+  }
+}
+.make-md-column-push(@columns) {
+  @media (min-width: @screen-md-min) {
+    left: percentage((@columns / @grid-columns));
+  }
+}
+.make-md-column-pull(@columns) {
+  @media (min-width: @screen-md-min) {
+    right: percentage((@columns / @grid-columns));
+  }
+}
+
+// Generate the large columns
+.make-lg-column(@columns; @gutter: @grid-gutter-width) {
+  position: relative;
+  // Prevent columns from collapsing when empty
+  min-height: 1px;
+  // Inner gutter via padding
+  padding-left:  (@gutter / 2);
+  padding-right: (@gutter / 2);
+
+  // Calculate width based on number of columns available
+  @media (min-width: @screen-lg-min) {
+    float: left;
+    width: percentage((@columns / @grid-columns));
+  }
+}
+
+// Generate the large column offsets
+.make-lg-column-offset(@columns) {
+  @media (min-width: @screen-lg-min) {
+    margin-left: percentage((@columns / @grid-columns));
+  }
+}
+.make-lg-column-push(@columns) {
+  @media (min-width: @screen-lg-min) {
+    left: percentage((@columns / @grid-columns));
+  }
+}
+.make-lg-column-pull(@columns) {
+  @media (min-width: @screen-lg-min) {
+    right: percentage((@columns / @grid-columns));
+  }
+}
+              .wrapper {
+              .make-row();
+            }
+            .content-main {
+              .make-lg-column(8);
+            }
+            .content-secondary {
+              .make-lg-column(3);
+              .make-lg-column-offset(1);
+            }
+         .optgroup {
+         	text-align: center;
+         }		
+		.h2 {
+			text-align: center;
+			color: blue;
+		}
+		.h3 {
+			text-align: center;
+			color: blue;
+		}
+	</style>
+<body>
+
+	<h1>Experiment</h1>
+	<form>
+		    <select name="Language" id="Language:">
+			<optgroup label="--Select Language--">
+				<option value ="English">English</option>
+				<option value ="Hindi">Hindi</option>
+			</optgroup>
+           </select>
+	</form>
+	<h2>Form a Sentence (Declarative or Interrogative or any Other type) from the given words</h2>
+	<h3>(select the buttons in proper order)</h3>
+	
+<button class="button button1">Ate</button>
+<button class="button button2">John</button>
+<button class="button button3">an</button>
+<button class="button button4">apple</button>
+<button class="button button5">afternoon</button>
+<button class="button button6">before</button>
+<p id= "demo"></p>
+<script>
+	var text1 = '{"statements":[' +
+	'{"firstName":"John","secondName":"Ate","ThirdName":"an","FourthName":"apple","FifthName":"before","LastName":"afternoon"},' +
+	'{"firstName":"Before","secondName":"afternoon","ThirdName":"John","FourthName":"Ate","FifthName":"An","LastName":"Apple"},' +
+	'{"firstName":"John","secondName":"before","ThirdName":"afternoon","FourthName":"Ate","FifthName":"An","LastName":"Apple"}]}';
+    obj = JSON.parse(text1);
+    document.getElementById("demo").innerHTML =
+    obj.statements[0].firstName + obj.statements[0].secondName + obj.statements[0].ThirdName + obj.statements[0].FourthName + obj.statements[0].FifthName + obj.statements[0].LastName;
+    obj.statements[1].firstName + obj.statements[1].secondName + obj.statements[1].ThirdName + obj.statements[1].FourthName + obj.statements[1].FifthName + obj.statements[1].LastName;
+    obj.statements[2].firstName + obj.statements[2].secondName + obj.statements[2].ThirdName + obj.statements[2].FourthName + obj.statements[2].FifthName + obj.statements[2].LastName;
+ 
+        var text2 = '{"statements":[' +
+   '{"firstName":"some","secondName":"students","ThirdName":"like","FourthName":"to","FifthName":"study","sixthName":"in","seventhName":"the","LastName":"night"},' +
+     '{"firstName":"at","secondName":"night","ThirdName":"some","FourthName":"students","FifthName":"like","SixthName":"to","LastName":"study"}]}'
+     obj = JSON.parse(text2);
+    document.getElementById("demo").innerHTML =
+    obj.statements[0].firstName + obj.statements[0].secondName + obj.statements[0].ThirdName + obj.statements[0].FourthName + obj.statements[0].FifthName + obj.statements[0].SixthName + obj.statements[0].seventhName +  obj.statements[0].LastName;
+    obj.statements[1].firstName + obj.statements[1].secondName + obj.statements[1].ThirdName + obj.statements[1].FourthName + obj.statements[1].FifthName + obj.statements[1].SixthName + obj.statements[1].seventhName + obj.statements[1].LastName;
+
+        var text3 = '{"statements":[' +
+     '{"firstName":"john","secondName":"and","ThirdName":"Mary","FourthName":"Went","FifthName":"to","LastName":"church"},' +
+     '{"firstName":"Mary","secondName":"and","ThirdName":"john","FourthName":"went","FifthName":"to","LastName":"church"},]}'
+     obj = JSON.parse(text3);
+    document.getElementById("demo").innerHTML =
+    obj.statements[0].firstName + obj.statements[0].secondName + obj.statements[0].ThirdName + obj.statements[0].FourthName + obj.statements[0].FifthName + obj.statements[0].LastName;
+    obj.statements[1].firstName + obj.statements[1].secondName + obj.statements[1].ThirdName + obj.statements[1].FourthName + obj.statements[1].FifthName + obj.statements[1].LastName;
+
+        var text4 = '{"statements":[' +
+     '{"firstName":"john","secondName":"went","ThirdName":"to","FourthName":"church","FifthName":"after","LastName":"eating"},' +
+     '{"firstName":"after","secondName":"eating","ThirdName":"john","FourthName":"went","FifthName":"to","LastName":"church"},' +
+     '{"firstName":"john","secondName":"after","ThirdName":"eating","FourthName":"went","FifthName":"to","LastName":"church"},]}'
+       obj = JSON.parse(text4);
+    document.getElementById("demo").innerHTML =
+    obj.statements[0].firstName + obj.statements[0].secondName + obj.statements[0].ThirdName + obj.statements[0].FourthName + obj.statements[0].FifthName + obj.statements[0].LastName;
+    obj.statements[1].firstName + obj.statements[1].secondName + obj.statements[1].ThirdName + obj.statements[1].FourthName + obj.statements[1].FifthName + obj.statements[1].LastName;
+    obj.statements[2].firstName + obj.statements[2].secondName + obj.statements[2].ThirdName + obj.statements[2].FourthName + obj.statements[2].FifthName + obj.statements[2].LastName;
+
+        var text5 = '{"statements":[' +
+     '{"firstName":"did","secondName":"he","ThirdName":"go","FourthName":"to","LastName":"market"},' +
+     '{"firstName":"he","secondName":"did","ThirdName":"go","FourthName":"to","LastName":"market"},]}'
+      obj = JSON.parse(text5);
+    document.getElementById("demo").innerHTML =
+    obj.statements[0].firstName + obj.statements[0].secondName + obj.statements[0].ThirdName + obj.statements[0].FourthName + obj.statements[0].LastName;
+    obj.statements[1].firstName + obj.statements[1].secondName + obj.statements[1].ThirdName + obj.statements[1].FourthName + obj.statements[1].LastName;
+
+         var text6 = '{"statements":[' +
+    '{"firstName":"the","secondName":"woman","ThirdName":"who","FourthName":"called","FifthName":"my","sixthName":"sister","seventhName":"sells","LastName":"cosmetics"},' +
+     '{"firstName":"the","secondName":"woman","ThirdName":"who","FourthName":"sells","FifthName":"cosmetics","sixthName":"called","seventhName":"my","LastName":"sister"},' +
+      '{"firstName":"my","secondName":"sister","ThirdName":"who","FourthName":"sells","FifthName":"cosmetics","sixthName":"called","seventhName":"the","LastName":"woman"},' +
+      '{"firstName":"my","secondName":"sister","ThirdName":"who","FourthName":"called","FifthName":"the","sixthName":"woman","seventhName":"sells","LastName":"cosmetics"},]}'
+      obj = JSON.parse(text6);
+    document.getElementById("demo").innerHTML =
+    obj.statements[0].firstName + obj.statements[0].secondName + obj.statements[0].ThirdName + obj.statements[0].FourthName + obj.statements[0].FifthName + obj.statements[0].sixthName + obj.statements[0].seventhName + obj.statements[0].LastName;
+    obj.statements[1].firstName + obj.statements[1].secondName + obj.statements[1].ThirdName + obj.statements[1].FourthName + obj.statements[1].FifthName + obj.statements[1].sixthName + obj.statements[1].seventhName + obj.statements[1].LastName;
+    obj.statements[2].firstName + obj.statements[2].secondName + obj.statements[2].ThirdName + obj.statements[2].FourthName + obj.statements[2].FifthName + obj.statements[2].sixthName + obj.statements[2].seventhName + obj.statements[2].LastName;
+    obj.statements[3].firstName + obj.statements[3].secondName + obj.statements[3].ThirdName + obj.statements[3].FourthName + obj.statements[3].FifthName + obj.statements[3].sixthName + obj.statements[3].seventhName + obj.statements[3].LastName;
+
+        var text7 = '{"statements":[' +
+      '{"firstName":"john","secondName":"goes","ThirdName":"to","FourthName":"the","FifthName":"library","sixthName":"and","LastName":"studies"},' +
+        '{"firstName":"john","secondName":"studies","ThirdName":"and","FourthName":"goes","FifthName":"to","sixthName":"the","LastName":"library"},]}'
+	   obj = JSON.parse(text7);
+       document.getElementById("demo").innerHTML =
+      obj.statements[0].firstName + obj.statements[0].secondName + obj.statements[0].ThirdName + obj.statements[0].FourthName + obj.statements[0].FifthName + obj.statements[0].sixthName + obj.statements[0].LastName;
+      obj.statements[1].firstName + obj.statements[1].secondName + obj.statements[1].ThirdName + obj.statements[1].FourthName + obj.statements[1].FifthName + obj.statements[1].sixthName + obj.statements[1].LastName;  
+
+         var text8 = '{"statements":[' +
+        '{"firstName":"john","secondName":"ate","ThirdName":"an","FourthName":"apple","FifthName":"so",sixthName":"did","LastName":"she"},' +
+        '{"firstName":"she","secondName":"ate","ThirdName":"an","FourthName":"apple","FifthName":"so",sixthName":"did","LastName":"john"},]}' obj = JSON.parse(text8);
+       document.getElementById("demo").innerHTML =
+      obj.statements[0].firstName + obj.statements[0].secondName + obj.statements[0].ThirdName + obj.statements[0].FourthName + obj.statements[0].FifthName +  obj.statements[0].sixthName + obj.statements[0].LastName;
+      obj.statements[1].firstName + obj.statements[1].secondName + obj.statements[1].ThirdName + obj.statements[1].FourthName + obj.statements[1].FifthName + obj.statements[1].sixthName +  obj.statements[1].LastName; 
+         
+         var text9 = '{"statements":[' +
+         '{"firstName":"the","secondName":"teacher","ThirdName":"returned","FourthName":"the","FifthName":"book","sixthName":"after","seventhName":"she","EightName":"noticed","NinethName":"the","LastName":"error"},' +
+         '{"firstName":"the","secondName":"teacher","ThirdName":"noticed","FourthName":"the","FifthName":"error","sixthName":"after","seventhName":"she","EightName":"returned","NinethName":"the","LastName":"book"},' +
+         '{"firstName":"after","secondName":"the","ThirdName":"teacher","FourthName":"returned","FifthName":"the","sixthName":"book","seventhName":"she","EightName":"noticed","NinethName":"the","LastName":"error"},' +
+         '{"firstName":"after","secondName":"the","ThirdName":"teacher","FourthName":"noticed","FifthName":"the","sixthName":"error","seventhName":"she","EightName":"returned","NinethName":"the","LastName":"book"},' +
+         '{"firstName":"she","secondName":"returned","ThirdName":"the","FourthName":"book","FifthName":"after","sixthName":"the","seventhName":"teacher","EightName":"noticed","NinethName":"the","LastName":"error"},' +
+         '{"firstName":"she","secondName":"noticed","ThirdName":"the","FourthName":"error","FifthName":"after","sixthName":"the","seventhName":"teacher","EightName":"returned","NinethName":"the","LastName":"book"},' +
+          '{"firstName":"after","secondName":"she","ThirdName":"returned","FourthName":"the","FifthName":"book","sixthName":"the","seventhName":"teacher","EightName":"noticed","NinethName":"the","LastName":"error"},' +
+          '{"firstName":"after","secondName":"she","ThirdName":"noticed","FourthName":"the","FifthName":"error","sixthName":"the","seventhName":"teacher","EightName":"returned","NinethName":"the","LastName":"book"},]}'
+           obj = JSON.parse(text9);
+           document.getElementById("demo").innerHTML =
+           obj.statements[0].firstName + obj.statements[0].secondName + obj.statements[0].ThirdName + obj.statements[0].FourthName + obj.statements[0].FifthName + obj.statements[0].sixthName + obj.statements[0].seventhName + obj.statements[0].EightName + obj.statements[0].NinethName + obj.statements[0].LastName; 
+           obj.statements[1].firstName + obj.statements[1].secondName + obj.statements[1].ThirdName + obj.statements[1].FourthName + obj.statements[1].FifthName + obj.statements[1].sixthName + obj.statements[1].seventhName + obj.statements[1].EightName + obj.statements[1].NinethName + obj.statements[1].LastName; 
+           obj.statements[2].firstName + obj.statements[2].secondName + obj.statements[2].ThirdName + obj.statements[2].FourthName + obj.statements[2].FifthName + obj.statements[2].sixthName + obj.statements[2].seventhName + obj.statements[2].EightName + obj.statements[2].NinethName + obj.statements[2].LastName; 
+           obj.statements[3].firstName + obj.statements[3].secondName + obj.statements[3].ThirdName + obj.statements[3].FourthName + obj.statements[3].FifthName + obj.statements[3].sixthName + obj.statements[3].seventhName + obj.statements[3].EightName + obj.statements[3].NinethName + obj.statements[3].LastName; 
+           obj.statements[4].firstName + obj.statements[4].secondName + obj.statements[4].ThirdName + obj.statements[4].FourthName + obj.statements[4].FifthName + obj.statements[4].sixthName + obj.statements[4].seventhName + obj.statements[4].EightName + obj.statements[4].NinethName + obj.statements[4].LastName; 
+           obj.statements[5].firstName + obj.statements[5].secondName + obj.statements[5].ThirdName + obj.statements[5].FourthName + obj.statements[5].FifthName + obj.statements[5].sixthName + obj.statements[5].seventhName + obj.statements[5].EightName + obj.statements[5].NinethName + obj.statements[5].LastName; 
+           obj.statements[6].firstName + obj.statements[6].secondName + obj.statements[6].ThirdName + obj.statements[6].FourthName + obj.statements[6].FifthName + obj.statements[6].sixthName + obj.statements[6].seventhName + obj.statements[6].EightName + obj.statements[6].NinethName + obj.statements[6].LastName; 
+           obj.statements[7].firstName + obj.statements[7].secondName + obj.statements[7].ThirdName + obj.statements[7].FourthName + obj.statements[7].FifthName + obj.statements[7].sixthName + obj.statements[7].seventhName + obj.statements[7].EightName + obj.statements[7].NinethName + obj.statements[7].LastName; 
+            
+            var text10 = '{"statements":[' + 
+             '{"firstName":"I","secondName":"told","ThirdName":"her",FourthName":"that","FifthName":"I","sixthName":"bought", "SeventhName":"a","EightName":"book","LastName":"yesterday"},'+
+              '{"firstName":"I","secondName":"told","ThirdName":"her",FourthName":"yesterday","FifthName":"that","sixthName":"I", "SeventhName":"bought","EightName":"a","LastName":"book"},'+
+              '{"firstName":"yesterday","secondName":"I","ThirdName":"told",FourthName":"her","FifthName":"that","sixthName":"I", "SeventhName":"bought","EightName":"a","LastName":"book"},'+
+              '{"firstName":"I","secondName":"bought","ThirdName":"a",FourthName":"book","FifthName":"that","sixthName":"I", "SeventhName":"told","EightName":"her","LastName":"yesterday"},'+
+              '{"firstName":"I","secondName":"bought","ThirdName":"a",FourthName":"book","FifthName":"yesterday","sixthName":"that", "SeventhName":"I","EightName":"told","LastName":"her"},'+
+              '{"firstName":"yesterday","secondName":"I","ThirdName":"bought",FourthName":"a","FifthName":"book","sixthName":"that", "SeventhName":"I","EightName":"told","LastName":"her"},]}'
+                obj = JSON.parse(text10);
+              document.getElementById("demo").innerHTML =
+             obj.statements[0].firstName + obj.statements[0].secondName + obj.statements[0].ThirdName + obj.statements[0].FourthName + obj.statements[0].FifthName + obj.statements[0].sixthName + obj.statements[0].seventhName + obj.statements[0].EightName  + obj.statements[0].LastName; 
+              obj.statements[1].firstName + obj.statements[1].secondName + obj.statements[1].ThirdName + obj.statements[1].FourthName + obj.statements[1].FifthName + obj.statements[1].sixthName + obj.statements[1].seventhName + obj.statements[1].EightName +  obj.statements[1].LastName; 
+              obj.statements[2].firstName + obj.statements[2].secondName + obj.statements[2].ThirdName + obj.statements[2].FourthName + obj.statements[2].FifthName + obj.statements[2].sixthName + obj.statements[2].seventhName + obj.statements[2].EightName  + obj.statements[2].LastName; 
+              obj.statements[3].firstName + obj.statements[3].secondName + obj.statements[3].ThirdName + obj.statements[3].FourthName + obj.statements[3].FifthName + obj.statements[3].sixthName + obj.statements[3].seventhName + obj.statements[3].EightName  + obj.statements[3].LastName; 
+              obj.statements[4].firstName + obj.statements[4].secondName + obj.statements[4].ThirdName + obj.statements[4].FourthName + obj.statements[4].FifthName + obj.statements[4].sixthName + obj.statements[4].seventhName + obj.statements[4].EightName  + obj.statements[4].LastName; 
+             obj.statements[5].firstName + obj.statements[5].secondName + obj.statements[5].ThirdName + obj.statements[5].FourthName + obj.statements[5].FifthName + obj.statements[5].sixthName + obj.statements[5].seventhName + obj.statements[5].EightName  + obj.statements[5].LastName; 
+</script>             
+
+
+<button class="button button1">र।म</button>
+<button class="button button2">ओर</button>
+<button class="button button3">गओ</button>
+<button class="button button4">ब।ज।र</button>
+<button class="button button5">य।म</button>
+
+<p id= "virtual"></p>
+<script>
+     
+     var script1 = '{"elements":[' +
+	'{"firstName":"राम","secondName":"और","ThirdName":"शयाम","FourthName":"बाजार","LastName":"गये"},' +
+	'{"firstName":"राम","secondName":"और","ThirdName":"शयाम","FourthName":"गये","LastName":"बाजार"},' +
+	'{"firstName":"बाजार","secondName":गये,"ThirdName":"राम","FourthName":"ओर","LastName":"शयाम"},' +
+    '{"firstName":"गये","secondName":"बाजार","ThirdName":"राम","FourthName":"ओर","LastName":"शयाम"}]}';
+    obj = JSON.parse(script1);
+    document.getElementById("virtual").innerHTML =
+    obj.elements[0].firstName + obj.elements[0].secondName + obj.elements[0].ThirdName + obj.elements[0].FourthName  + obj.elements[0].LastName;
+    obj.elements[1].firstName + obj.elements[1].secondName + obj.elements[1].ThirdName + obj.elements[1].FourthName  + obj.elements[1].LastName;
+    obj.elements[2].firstName + obj.elements[2].secondName + obj.elements[2].ThirdName + obj.elements[2].FourthName  + obj.elements[2].LastName;
+    obj.elements[3].firstName + obj.elements[3].secondName + obj.elements[3].ThirdName + obj.elements[3].FourthName  + obj.elements[3].LastName;
+   
+   var script2 = '{"elements":[' +
+      '{"firstName":"राम","secondName":"सौया","ThirdName":"और","FourthName":"शयाम","LastName":"भी"},' +
+      '{"firstName":"शयाम","secondName":"सौया","ThirdName":"और","FourthName":"राम","LastName":"भी"},' +
+       '{"firstName":"सौया","secondName":"शयाम","ThirdName":"और","FourthName":"राम","LastName":"भी"},' +
+     '{"firstName":"सौया","secondName":"राम","ThirdName":"और","FourthName":"शयाम","LastName":"भी"},]}';
+           obj = JSON.parse(script2);
+    document.getElementById("virtual").innerHTML =
+    obj.elements[0].firstName + obj.elements[0].secondName + obj.elements[0].ThirdName + obj.elements[0].FourthName  + obj.elements[0].LastName;
+    obj.elements[1].firstName + obj.elements[1].secondName + obj.elements[1].ThirdName + obj.elements[1].FourthName  + obj.elements[1].LastName;
+    obj.elements[2].firstName + obj.elements[2].secondName + obj.elements[2].ThirdName + obj.elements[2].FourthName  + obj.elements[2].LastName;
+    obj.elements[3].firstName + obj.elements[3].secondName + obj.elements[3].ThirdName + obj.elements[3].FourthName  + obj.elements[3].LastName;
+
+
+     var script3 = '{"elements":[' +
+       '{"firstName":"मौंने","secondName":"उसे","ThirdName":"बताया",FourthName":"कि","FifthName":"राम","sixthName":"सौ", "SeventhName":"रहा","LastName":"है"},'+
+     '{"firstName":"मौंने","secondName":"उसे","ThirdName":"बताया",FourthName":"कि","FifthName":"सौ","sixthName":"रहा", "SeventhName":"है","LastName":"राम"},'+
+     '{"firstName":"उसे","secondName":"मौंने","ThirdName":"बताया",FourthName":"कि","FifthName":"राम","sixthName":"सौ", "SeventhName":"रहा","LastName":"है"},'+
+     '{"firstName":"उसे","secondName":"मैंने","ThirdName":"बताया",FourthName":"कि","FifthName":"सो","sixthName":"रहा", "SeventhName":"है","LastName":"राम"},'+
+     '{"firstName":"मैंने","secondName":"बताया","ThirdName":"उसे",FourthName":"कि","FifthName":"राम","sixthName":"सौ", "SeventhName":"रहा","LastName":"है"},'+
+     '{"firstName":"मैंने","secondName":"बताया","ThirdName":"उसे",FourthName":"कि","FifthName":"सौ","sixthName":"रहा", "SeventhName":"है","LastName":"राम"},'+
+     '{"firstName":"उसे","secondName":"बताया","ThirdName":"मैंने",FourthName":"कि","FifthName":"राम","sixthName":"सौ", "SeventhName":"रहा","LastName":"है"},'+
+    '{"firstName":"उसे","secondName":"बताया","ThirdName":"मैंने",FourthName":"कि","FifthName":"सौ","sixthName":"रहा", "SeventhName":"है","LastName":"राम"},'+
+    '{"firstName":"बताया","secondName":"मैंने","ThirdName":"उसे",FourthName":"कि","FifthName":"राम","sixthName":"सौ", "SeventhName":"रहा","LastName":"है"},'+
+    '{"firstName":"बताया","secondName":"मैंने","ThirdName":"उसे",FourthName":"कि","FifthName":"सौ","sixthName":"रहा", "SeventhName":"है","LastName":"राम"},'+
+    '{"firstName":"बताया","secondName":"उसे","ThirdName":"मैंने",FourthName":"कि","FifthName":"राम","sixthName":"सौ", "SeventhName":"रहा","LastName":"है"},'+
+    '{"firstName":"बताया","secondName":"उसे","ThirdName":"मैंने",FourthName":"कि","FifthName":"सौ","sixthName":"रहा", "SeventhName":"है","LastName":"राम"},]}'
+           obj = JSON.parse(script3);
+           document.getElementById("virtual").innerHTML =
+          obj.elements[0].firstName + obj.elements[0].secondName + obj.elements[0].ThirdName + obj.elements[0].FourthName  + obj.elements[0].FifthName + obj.elements[0].SixthName + obj.elements[0].SeventhName  + obj.elements[0].LastName;
+          obj.elements[1].firstName + obj.elements[1].secondName + obj.elements[1].ThirdName + obj.elements[1].FourthName  + obj.elements[1].FifthName + obj.elements[1].SixthName + obj.elements[1].SeventhName  + obj.elements[1].LastName;
+          obj.elements[2].firstName + obj.elements[2].secondName + obj.elements[2].ThirdName + obj.elements[2].FourthName  + obj.elements[2].FifthName + obj.elements[2].SixthName + obj.elements[2].SeventhName  + obj.elements[2].LastName;
+          obj.elements[3].firstName + obj.elements[3].secondName + obj.elements[3].ThirdName + obj.elements[3].FourthName  + obj.elements[3].FifthName + obj.elements[3].SixthName + obj.elements[3].SeventhName  + obj.elements[3].LastName;
+          obj.elements[4].firstName + obj.elements[4].secondName + obj.elements[4].ThirdName + obj.elements[4].FourthName  + obj.elements[4].FifthName + obj.elements[4].SixthName + obj.elements[4].SeventhName  + obj.elements[4].LastName;
+          obj.elements[5].firstName + obj.elements[5].secondName + obj.elements[5].ThirdName + obj.elements[5].FourthName  + obj.elements[5].FifthName + obj.elements[5].SixthName + obj.elements[5].SeventhName  + obj.elements[5].LastName;
+          obj.elements[6].firstName + obj.elements[6].secondName + obj.elements[6].ThirdName + obj.elements[6].FourthName  + obj.elements[6].FifthName + obj.elements[6].SixthName + obj.elements[6].SeventhName  + obj.elements[6].LastName;
+          obj.elements[7].firstName + obj.elements[7].secondName + obj.elements[7].ThirdName + obj.elements[7].FourthName  + obj.elements[7].FifthName + obj.elements[7].SixthName + obj.elements[7].SeventhName  + obj.elements[7].LastName;
+          obj.elements[8].firstName + obj.elements[8].secondName + obj.elements[8].ThirdName + obj.elements[8].FourthName  + obj.elements[8].FifthName + obj.elements[8].SixthName + obj.elements[8].SeventhName  + obj.elements[8].LastName;
+          obj.elements[9].firstName + obj.elements[9].secondName + obj.elements[9].ThirdName + obj.elements[9].FourthName  + obj.elements[9].FifthName + obj.elements[9].SixthName + obj.elements[9].SeventhName  + obj.elements[9].LastName;
+          obj.elements[10].firstName + obj.elements[10].secondName + obj.elements[10].ThirdName + obj.elements[10].FourthName  + obj.elements[10].FifthName + obj.elements[10].SixthName + obj.elements[10].SeventhName  + obj.elements[10].LastName;
+          obj.elements[11].firstName + obj.elements[11].secondName + obj.elements[11].ThirdName + obj.elements[11].FourthName  + obj.elements[11].FifthName + obj.elements[11].SixthName + obj.elements[11].SeventhName  + obj.elements[11].LastName;
+
+
+           var script4 = '{"elements":[' +
+	    '{"firstName":"राम","secondName":"खाकर","ThirdName":"शयाम","FourthName":"बाजार","LastName":"सौया"},' +
+	    '{"firstName":"खाकर","secondName":"राम","ThirdName":"शयाम","FourthName":"बाजार","LastName":"सौया"},' +
+	    '{"firstName":"राम","secondName":"सौया","ThirdName":"शयाम","FourthName":"बाजार","LastName":"खाकर"},' +
+    	'{"firstName":"खाकर","secondName":"सौया","ThirdName":"शयाम","FourthName":"बाजार","LastName":"राम"},' +
+    	'{"firstName":"सौया","secondName":"राम","ThirdName":"शयाम","FourthName":"बाजार","LastName":"खाकर"},' +
+    	'{"firstName":"सौया","secondName":"खाकर","ThirdName":"शयाम","FourthName":"बाजार","LastName":"राम"},]}'
+          obj = JSON.parse(script4);
+          document.getElementById("virtual").innerHTML =
+          obj.elements[0].firstName + obj.elements[0].secondName + obj.elements[0].ThirdName + obj.elements[0].FourthName  + obj.elements[0].LastName;
+          obj.elements[1].firstName + obj.elements[1].secondName + obj.elements[1].ThirdName + obj.elements[1].FourthName  + obj.elements[1].LastName;
+          obj.elements[2].firstName + obj.elements[2].secondName + obj.elements[2].ThirdName + obj.elements[2].FourthName  + obj.elements[2].LastName;
+          obj.elements[3].firstName + obj.elements[3].secondName + obj.elements[3].ThirdName + obj.elements[3].FourthName  + obj.elements[3].LastName;
+           obj.elements[4].firstName + obj.elements[4].secondName + obj.elements[4].ThirdName + obj.elements[4].FourthName  + obj.elements[4].LastName;
+           obj.elements[5].firstName + obj.elements[5].secondName + obj.elements[5].ThirdName + obj.elements[5].FourthName  + obj.elements[5].LastName;
+               
+            var script5 = '{"elements":[' +
+              '{"firstName":"बिलियौं","secondName":"को","ThirdName":"मारकार","FourthName":"कुता","FifthName":"सौ","LastName":"गय"},' +
+    		  '{"firstName":"मारकर","secondName":"बिलियौं","ThirdName":"को","FourthName":"कुता","FifthName":"सो","LastName":"गया"},' +
+    		  '{"firstName":"बिलियौं","secondName":"को","ThirdName":"मारकार","FourthName":"सो","FifthName":"गया","LastName":"कुता"},' +
+    		   '{"firstName":"मारकार","secondName":"बिलियौं","ThirdName":"को","FourthName":"सो","FifthName":"गया","LastName":"कुता"},' +
+    		   '{"firstName":"कुता","secondName":"सौ","ThirdName":"गया","FourthName":"बिलियौं","FifthName":"को","LastName":"मारकर"},' +
+    		   '{"firstName":"कुता","secondName":"सौ","ThirdName":"गया","FourthName":"मारकर","FifthName":"बिलियौं","LastName":"को"},' +
+    		   '{"firstName":"सो","secondName":"गया","ThirdName":"कुता","FourthName":"बिलियौं","FifthName":"को","LastName":"मारकर"},' +
+    		    '{"firstName":"सो","secondName":"गया","ThirdName":"कुता","FourthName":"मारकर","FifthName":"बिलियौं","LastName":"को"},]}'
+                 obj = JSON.parse(script5);
+          document.getElementById("virtual").innerHTML =
+          obj.elements[0].firstName + obj.elements[0].secondName + obj.elements[0].ThirdName + obj.elements[0].FourthName + obj.elements[0].FifthName + obj.elements[0].LastName;
+          obj.elements[1].firstName + obj.elements[1].secondName + obj.elements[1].ThirdName + obj.elements[1].FourthName + obj.elements[1].FifthName + obj.elements[1].LastName;
+          obj.elements[2].firstName + obj.elements[2].secondName + obj.elements[2].ThirdName + obj.elements[2].FourthName + obj.elements[2].FifthName + obj.elements[2].LastName;
+          obj.elements[3].firstName + obj.elements[3].secondName + obj.elements[3].ThirdName + obj.elements[3].FourthName + obj.elements[3].FifthName + obj.elements[3].LastName;
+           obj.elements[4].firstName + obj.elements[4].secondName + obj.elements[4].ThirdName + obj.elements[4].FourthName + obj.elements[4].FifthName + obj.elements[4].LastName;
+           obj.elements[5].firstName + obj.elements[5].secondName + obj.elements[5].ThirdName + obj.elements[5].FourthName + obj.elements[5].FifthName + obj.elements[5].LastName;
+           obj.elements[6].firstName + obj.elements[6].secondName + obj.elements[6].ThirdName + obj.elements[6].FourthName + obj.elements[6].FifthName + obj.elements[6].LastName;
+           obj.elements[7].firstName + obj.elements[7].secondName + obj.elements[7].ThirdName + obj.elements[7].FourthName + obj.elements[7].FifthName + obj.elements[7].LastName;
+
+
+        var script6 = '{"elements":[' +
+          '{"firstName":"एक","secondName":"लाल","ThirdName":"किताब","FourthName":"वहाँ","LastName":"है"},' +
+          '{"firstName":"एक","secondName":"लाल","ThirdName":"किताब","FourthName":"है","LastName":"वहाँ"},' +
+          '{"firstName":"वहाँ","secondName":"है","ThirdName":"एक","FourthName":"लाल","LastName":"किताब"},' +
+           '{"firstName":"है","secondName":"वहाँ","ThirdName":"एक","FourthName":"लाल","LastName":"किताब"},]}'
+            obj = JSON.parse(script6);
+            document.getElementById("virtual").innerHTML =
+           obj.elements[0].firstName + obj.elements[0].secondName + obj.elements[0].ThirdName + obj.elements[0].FourthName  + obj.elements[0].LastName;
+           obj.elements[1].firstName + obj.elements[1].secondName + obj.elements[1].ThirdName + obj.elements[1].FourthName  + obj.elements[1].LastName;
+           obj.elements[2].firstName + obj.elements[2].secondName + obj.elements[2].ThirdName + obj.elements[2].FourthName  + obj.elements[2].LastName;
+           obj.elements[3].firstName + obj.elements[3].secondName + obj.elements[3].ThirdName + obj.elements[3].FourthName  + obj.elements[3].LastName;
+
+           var script7 = '{"elements":[' +
+            '{"firstName":"एक","secondName":"बङी","ThirdName":"सी","FourthName":"किताब","FifthName":"वहाँ","LastName":"है"},' +
+            '{"firstName":"एक","secondName":"बङी","ThirdName":"सी","FourthName":"किताब","FifthName":"है","LastName":"वहाँ"},' +
+             '{"firstName":"बङी","secondName":"सी","ThirdName":"एक","FourthName":"किताब","FifthName":"वहाँ","LastName":"है"},' +
+             '{"firstName":"बङी","secondName":"सी","ThirdName":"एक","FourthName":"किताब","FifthName":"है","LastName":"वहाँ"},' +
+             '{"firstName":"वहाँ","secondName":"है","ThirdName":"एक","FourthName":"बङी","FifthName":"सी","LastName":"किताब"},' +
+             '{"firstName":"वहाँ","secondName":"है","ThirdName":"बङी","FourthName":"सी","FifthName":"एक","LastName":"किताब"},' +
+             '{"firstName":"है","secondName":"वहाँ","ThirdName":"एक","FourthName":"बङी","FifthName":"सी","LastName":"किताब"},' +
+             '{"firstName":"है","secondName":"वहाँ","ThirdName":"बङी","FourthName":"सी","FifthName":"एक","LastName":"किताब"},]}'
+              obj.elements[0].firstName + obj.elements[0].secondName + obj.elements[0].ThirdName + obj.elements[0].FourthName  + obj.elements[0].FifthName + obj.elements[0].LastName;
+              obj.elements[1].firstName + obj.elements[1].secondName + obj.elements[1].ThirdName + obj.elements[1].FourthName  + obj.elements[1].FifthName + obj.elements[1].LastName;
+              obj.elements[2].firstName + obj.elements[2].secondName + obj.elements[2].ThirdName + obj.elements[2].FourthName  + obj.elements[2].FifthName + obj.elements[2].LastName;
+              obj.elements[3].firstName + obj.elements[3].secondName + obj.elements[3].ThirdName + obj.elements[3].FourthName  + obj.elements[3].FifthName + obj.elements[3].LastName;
+              obj.elements[4].firstName + obj.elements[4].secondName + obj.elements[4].ThirdName + obj.elements[4].FourthName  + obj.elements[4].FifthName + obj.elements[4].LastName;
+              obj.elements[5].firstName + obj.elements[5].secondName + obj.elements[5].ThirdName + obj.elements[5].FourthName  + obj.elements[5].FifthName + obj.elements[5].LastName;
+              obj.elements[6].firstName + obj.elements[6].secondName + obj.elements[6].ThirdName + obj.elements[6].FourthName  + obj.elements[6].FifthName + obj.elements[6].LastName;
+              obj.elements[7].firstName + obj.elements[7].secondName + obj.elements[7].ThirdName + obj.elements[7].FourthName  + obj.elements[7].FifthName + obj.elements[7].LastName;
+
+  </script>
+</body>
+</html>
