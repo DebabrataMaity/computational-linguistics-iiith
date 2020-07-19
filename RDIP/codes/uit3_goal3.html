@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <script src="https://code.jquery.com/jquery-3.5.1.min.js">
+   </script>
+</head>
+<body style="text-align: center;">
+   
+   <center>
+       <h1 style="text-align: left;">Experiment</h1>
+   <div>
+<select>
+   <option>--select language--</option>
+   <option value="English">English</option>
+   <option value="Hindi">Hindi</option>
+</select>
+</div>
+<div>
+<div class = "English demo"
+      style="text-align: center;
+             margin-top: 50px;
+             margin-bottom: 50px;
+             width :70%">
+<strong>Form a sentence (Declarative or Interrogative or any Other type) from given words (select the words in proper order) </strong>
+</div>
+<div class = "Hindi demo"
+      style="text-align: center;
+              margin-top: 50px;
+              margin-bottom: 50px;
+               width:70%">
+ <strong>Form a sentence (Declarative or Interrogative or any other type) from given words (select the words in proper order) </strong>
+</div>
+</div>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("select").on('change', function() {
+       $(this).find("option:selected").each(function() {
+         var dropdown = $(this).attr("value");
+         if(dropdown) {
+            $(".demo").not("." + dropdown).hide();
+            $("." + dropdown).show();
+
+         }else {
+            $(".demo").hide();
+         }
+    });
+  }).change();   
+});
+</script>
+</center>
+</body>
+</html>
