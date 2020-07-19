@@ -1,0 +1,1 @@
+**Bootstrap and css files/classes are added in each page**
