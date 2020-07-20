@@ -16,7 +16,10 @@ body{
     font-size: 14px;
 }
 </style>
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </head>
 <body>
     <h1 class="one">Experiment - 2 : Tokens and Types</h1>
@@ -44,7 +47,37 @@ body{
     <p id="corp1"></p>
     <p id="corp2"></p>
     <p id="corp3"></p>
-
+    </table>
+    </form><br>
+    <button id="but1" style="visibility: hidden;" onclick="x1=check_token(); x2=check_type();
+    if(parseInt(v.tok1.value) == x1)
+    {
+        document.getElementById('tok1').style.backgroundColor='green'
+    }
+    else
+    {
+        document.getElementById('tok1').style.backgroundColor='red'
+    }
+    if(parseInt(v.typ1.value) == x2)
+    {
+        document.getElementById('typ1').style.backgroundColor='green'
+    }
+    else
+    {
+        document.getElementById('typ1').style.backgroundColor='red'
+    }
+    if((document.getElementById('tok1').style.backgroundColor == 'green') && (document.getElementById('typ1').style.backgroundColor == 'green'))
+    {
+        document.getElementById('disp3').innerHTML= '<span style=\'color:green: font-size:20px\'>Right Answer</span>'
+        document.getElementById('but2').style.visibility='visible'
+    }
+    else
+    {
+        document.getElementById('disp3').innerHTML= '<span style=\'color:green: font-size:20px\'>Wrong Answer</span>'
+        document.getElementById('but2').style.visibility='hidden'
+    } ">Submit</button><br><br>
+    <p id="disp3"></p>
+    <button id="but2" style="visibility:hidden">Continue</button>
     </center>
     </section>
     <script src="Experiment.js"></script>
