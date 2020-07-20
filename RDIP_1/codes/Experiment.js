@@ -62,4 +62,32 @@ function select()
         document.getElementById("disp1").innerHTML=""
     }
 }
+function check_token()
+{
+    count=0;
+    var a=document.getElementById("disp1").innerHTML
+    temp=a.split(" ")
+    const a1=temp.filter(temp1=> temp1.trim()!=='"');
+    for(i=0;i<a1.length;i++)
+    {
+        count+=1;
+    }
+    console.log(a1)
+    return a1.length
+}
+function check_type()
+{
+    count1=0
+    var a=document.getElementById("disp1").innerHTML.toLowerCase().replace(/[^\w\s]/gi,"")
+    temp=a.split(" ")
+    const a1=temp.filter(temp1=> temp1.trim().length>0);
+    b=removeDuplicates(a1)
+    function removeDuplicates(array)
+    {
+        m = (array.filter((value,index) => array.indexOf(value) === index).length);
+        return m
+    };
+    console.log(b)
+    return b
+}
 
