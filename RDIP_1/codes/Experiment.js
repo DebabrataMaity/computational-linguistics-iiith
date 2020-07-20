@@ -97,4 +97,28 @@ function process()
     document.getElementById("disp3").innerHTML="#newtypes:"+"<br>"+"<input type='text'>"
     document.getElementById("but2").innerHTML="Submit"
 }
+function stem()
+{
+    count1 = 0;
+    var x = new Array()
+    var a=document.getElementById("disp1").innerHTML.toLowerCase().replace(/[^\w\s]/gi,"")
+    temp=a.split(" ")
+    const a1=temp.filter(temp1=> temp1.trim().length>0);
+    b=removeDuplicates(a1)
+    function removeDuplicates(array)
+    {
+        m = (array.filter((value,index) => array.indexOf(value) === index));
+        return m
+    }
+    for(i=0;i<b.length;i++)
+    {
+        var stemmer = new Snowball('English');
+        stemmer.setCurrent(b[i]);
+        stemmer.stem();
+        x.push(stemmer.getCurrent());            
+    }
+    console.log(x)
+}
 
+document.getElementById("but2").addEventListener("click",process);
+document.getElementById("but2").addEventListener("click",stem);
