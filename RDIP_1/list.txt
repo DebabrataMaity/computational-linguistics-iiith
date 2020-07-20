@@ -1,0 +1,4 @@
+1.On selecting particular corpus wee will get that particular corpus on the screen.
+2.we will get two text boxes to enter data: no.of tokens and types.
+3.If we give wrong data it displays as wrong input and if we gave correct input then it will display as correct input.
+4.calculate total types and give it as input if it is correct it will show it as correct.
