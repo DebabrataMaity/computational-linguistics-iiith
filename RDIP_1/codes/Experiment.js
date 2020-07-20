@@ -90,4 +90,11 @@ function check_type()
     console.log(b)
     return b
 }
+function process()
+{
+    document.getElementById("but1").style.visibility="hidden"
+    document.getElementById("disp4").innerHTML="Now, consider all the tokens with the same 'root' word to be of the same type. Recalculate the number of types."
+    document.getElementById("disp3").innerHTML="#newtypes:"+"<br>"+"<input type='text'>"
+    document.getElementById("but2").innerHTML="Submit"
+}
 
