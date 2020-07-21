@@ -76,10 +76,10 @@ body{
         document.getElementById('disp3').innerHTML= '<span style=\'color:green: font-size:20px\'>Wrong Answer</span>'
         document.getElementById('but2').style.visibility='hidden'
     } ">Submit</button><br><br>
-    <p id="disp3"></p>
     <p id="disp4"></p>
-    <button id="but2" style="visibility:hidden">Continue</button>
-    <button id="but2" style="visibility:hidden" onclick="process()">Continue</button>
+    <form name="st"><p id="disp5"></p><input type="text" name="set" id="set" style="visibility: hidden;background-color:''"></form>
+    <p id="disp3"></p>    
+    <button id="but2" style="visibility:hidden" onclick="process(); x=check();">Continue</button>
     </center>
     </section>
     <script src="Experiment.js"></script>
