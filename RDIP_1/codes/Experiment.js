@@ -21,6 +21,9 @@ function select()
     document.getElementById("but2").style.visibility="hidden"
     document.getElementById("disp4").innerHTML=""
     document.getElementById("but2").innerHTML="Continue"
+    document.getElementById("set").value=""
+    document.getElementById("set").style.backgroundColor=""
+    document.getElementById("set").style.visibility="hidden"
     document.getElementById("set1").style.backgroundColor=""
     document.getElementById("set1").value=""
     document.getElementById("set1").style.visibility="hidden"
@@ -34,8 +37,8 @@ function select()
         document.getElementById("disp2").style.visibility="visible"
         document.getElementById("tab1").style.visibility="visible"
         document.getElementById("but1").style.visibility="visible"     
-        document.getElementById("set1").style.backgroundColor=""
-        document.getElementById("set1").style.visibility="hidden"
+        document.getElementById("set").style.backgroundColor=""
+        document.getElementById("set").style.visibility="hidden"
     
     }
     else if(document.getElementById("corpus2").selected)
@@ -44,8 +47,8 @@ function select()
         document.getElementById("disp2").style.visibility="visible"
         document.getElementById("tab1").style.visibility="visible"
         document.getElementById("but1").style.visibility="visible"        
-        document.getElementById("set1").style.backgroundColor=""
-        document.getElementById("set1").style.visibility="hidden"
+        document.getElementById("set").style.backgroundColor=""
+        document.getElementById("set").style.visibility="hidden"
     
     }
     else if(document.getElementById("corpus3").selected)
@@ -54,8 +57,8 @@ function select()
         document.getElementById("disp2").style.visibility="visible"
         document.getElementById("tab1").style.visibility="visible"
         document.getElementById("but1").style.visibility="visible"     
-        document.getElementById("set1").style.backgroundColor=""
-        document.getElementById("set1").style.visibility="hidden"
+        document.getElementById("set").style.backgroundColor=""
+        document.getElementById("set").style.visibility="hidden"
     }
     else
     {
@@ -115,6 +118,7 @@ function process()
     document.getElementById("disp3").innerHTML=""
     document.getElementById("set").style.visibility="visible"
     document.getElementById("disp5").innerHTML="#newtypes:"
+    document.getElementById("set1").style.backgroundColor=""  
     document.getElementById("but2").innerHTML="Submit"
 }
 function check()
@@ -148,11 +152,25 @@ function check()
     function removeusingSet(arr)
     {
         let opArray = Array.from(new Set(arr))
+        console.log(opArray)
         return opArray.length
     }
     console.log(count1)
     return count1
 }
-
+function compare(x1)
+{
+  
+    if(document.getElementById("set").value == x1)
+    {
+        document.getElementById("set").style.backgroundColor="green"
+        document.getElementById("disp6").innerHTML='<span style=\'color:green; font-size:20px\'>Right Answer</span>'
+    }
+    else if(document.getElementById("set").value != x1)
+    {
+        document.getElementById("set").style.backgroundColor="red;
+        document.getElementById("disp6").innerHTML='<span style=\'color:red; font-size:20px\'>Wrong Answer</span>'
+    }
+}
 document.getElementById("but2").addEventListener("click",process);
 document.getElementById("but2").addEventListener("click",stem);
