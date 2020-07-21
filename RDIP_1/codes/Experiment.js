@@ -62,6 +62,24 @@ function select()
         document.getElementById("disp1").innerHTML=""
     }
 }
+function compare(x)
+{
+    if(document.getElementById("set").value == "")
+    {
+        document.getElementById("set").style.backgroundColor="";
+       
+    }
+    else if(document.getElementById("set").value == x)
+    {
+        document.getElementById("set").style.backgroundColor="green";
+        
+    }
+    else
+    {
+        document.getElementById("set").style.backgroundColor="red";
+       
+    }
+}
 function check_token()
 {
     count=0;
