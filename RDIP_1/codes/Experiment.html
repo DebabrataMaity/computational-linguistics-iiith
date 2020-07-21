@@ -15,6 +15,237 @@ body{
     height: 30px;
     font-size: 14px;
 }
+.wrapper {
+  .make-row();
+}
+.content-main {
+  .make-lg-column(8);
+}
+.content-secondary {
+  .make-lg-column(3);
+  .make-lg-column-offset(1);
+}
+.make-row(@gutter: @grid-gutter-width) {
+  // Then clear the floated columns
+  .clearfix();
+
+  @media (min-width: @screen-sm-min) {
+    margin-left:  (@gutter / -2);
+    margin-right: (@gutter / -2);
+  }
+
+  // Negative margin nested rows out to align the content of columns
+  .row {
+    margin-left:  (@gutter / -2);
+    margin-right: (@gutter / -2);
+  }
+}
+#disp1{
+    font-size: 18px;
+    margin-left: 70px;
+    margin-right: 70px;
+    color: black;
+    line-height: 1.5;
+    font-family: sans-serif;
+}
+#disp2{
+    font-size: 18px;
+    margin-left: 50px;
+    margin-right: 50px;
+    color: black;
+    line-height: 1.5;
+    font-family: sans-serif;
+}
+table{
+    border-collapse: collapse;
+}
+
+input[type="text"]
+{
+    width: 80px;
+    height: 25px;
+}
+td,tr{
+    border: 2px solid black;
+    padding: 8px;
+    color: black;
+}
+#disp3{
+    font-size: 20px;
+    font-weight: bolder;
+}
+#disp2{
+    font-size: 18px;
+    margin-left: 50px;
+    margin-right: 50px;
+    color: black;
+    line-height: 1.5;
+    font-family: sans-serif;
+}
+#but1{
+    border-radius: 5px;
+}
+#but2{
+    border-radius: 5px;
+}
+#disp4{
+    font-size: 18px;
+    margin-left: 50px;
+    margin-right: 50px;
+    color: black;
+    line-height: 1.5;
+    font-family: sans-serif;
+}
+#disp5{
+    font-size: 18px;
+    margin-left: 50px;
+    margin-right: 50px;
+    color: black;
+    line-height: 1.5;
+    font-family: sans-serif;
+}
+#disp6{
+    font-size: 18px;
+    margin-left: 50px;
+    margin-right: 50px;
+    line-height: 1.5;
+    font-family: sans-serif;
+    font-weight: bolder;    
+}
+#disp7{
+    font-size: 18px;
+    margin-left: 50px;
+    margin-right: 50px;
+    line-height: 1.5;
+    font-family: sans-serif;
+    font-weight: bolder;    
+}
+#disp8{
+    font-size: 18px;
+    margin-left: 50px;
+    margin-right: 50px;
+    line-height: 1.5;
+    font-family: sans-serif;
+    font-weight: bolder;    
+}
+#disp9{
+    font-size: 18px;
+    margin-left: 50px;
+    margin-right: 50px;
+    line-height: 1.5;
+    font-family: sans-serif;
+    font-weight: bolder;    
+}
+.make-xs-column(@columns; @gutter: @grid-gutter-width) {
+  position: relative;
+  // Prevent columns from collapsing when empty
+  min-height: 1px;
+  // Inner gutter via padding
+  padding-left:  (@gutter / 2);
+  padding-right: (@gutter / 2);
+
+  // Calculate width based on number of columns available
+  @media (min-width: @grid-float-breakpoint) {
+    float: left;
+    width: percentage((@columns / @grid-columns));
+  }
+}
+
+.make-sm-column(@columns; @gutter: @grid-gutter-width) {
+  position: relative;
+  // Prevent columns from collapsing when empty
+  min-height: 1px;
+  // Inner gutter via padding
+  padding-left:  (@gutter / 2);
+  padding-right: (@gutter / 2);
+
+  @media (min-width: @screen-sm-min) {
+    float: left;
+    width: percentage((@columns / @grid-columns));
+  }
+}
+
+.make-sm-column-offset(@columns) {
+  @media (min-width: @screen-sm-min) {
+    margin-left: percentage((@columns / @grid-columns));
+  }
+}
+.make-sm-column-push(@columns) {
+  @media (min-width: @screen-sm-min) {
+    left: percentage((@columns / @grid-columns));
+  }
+}
+.make-sm-column-pull(@columns) {
+  @media (min-width: @screen-sm-min) {
+    right: percentage((@columns / @grid-columns));
+  }
+}
+
+// Generate the medium columns
+.make-md-column(@columns; @gutter: @grid-gutter-width) {
+  position: relative;
+  // Prevent columns from collapsing when empty
+  min-height: 1px;
+  // Inner gutter via padding
+  padding-left:  (@gutter / 2);
+  padding-right: (@gutter / 2);
+
+  // Calculate width based on number of columns available
+  @media (min-width: @screen-md-min) {
+    float: left;
+    width: percentage((@columns / @grid-columns));
+  }
+}
+
+// Generate the medium column offsets
+.make-md-column-offset(@columns) {
+  @media (min-width: @screen-md-min) {
+    margin-left: percentage((@columns / @grid-columns));
+  }
+}
+.make-md-column-push(@columns) {
+  @media (min-width: @screen-md-min) {
+    left: percentage((@columns / @grid-columns));
+  }
+}
+.make-md-column-pull(@columns) {
+  @media (min-width: @screen-md-min) {
+    right: percentage((@columns / @grid-columns));
+  }
+}
+
+// Generate the large columns
+.make-lg-column(@columns; @gutter: @grid-gutter-width) {
+  position: relative;
+  // Prevent columns from collapsing when empty
+  min-height: 1px;
+  // Inner gutter via padding
+  padding-left:  (@gutter / 2);
+  padding-right: (@gutter / 2);
+
+  // Calculate width based on number of columns available
+  @media (min-width: @screen-lg-min) {
+    float: left;
+    width: percentage((@columns / @grid-columns));
+  }
+}
+
+// Generate the large column offsets
+.make-lg-column-offset(@columns) {
+  @media (min-width: @screen-lg-min) {
+    margin-left: percentage((@columns / @grid-columns));
+  }
+}
+.make-lg-column-push(@columns) {
+  @media (min-width: @screen-lg-min) {
+    left: percentage((@columns / @grid-columns));
+  }
+}
+.make-lg-column-pull(@columns) {
+  @media (min-width: @screen-lg-min) {
+    right: percentage((@columns / @grid-columns));
+  }
+}
 </style>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -30,8 +261,9 @@ body{
     <option value="corp2"  id="corpus2">Corpus 2</option>
     <option value="corp3"  id="corpus3">Corpus 3</option>
     </select></div><br><br>
+    <div class="collapse">
     <p id="disp1"></p><br>
-    <p id="disp2" style="visibility: hidden;">Enter the number of tokens and types for the above corpus:</p>
+    <p id="disp2" style="visibility: hidden;">Enter the number of tokens and types for the above corpus:</p></div>
     <table id="tab1" style="visibility: hidden;">
     <tr>
         <td>#tokens:</td>
@@ -73,14 +305,16 @@ body{
     }
     else
     {
-        document.getElementById('disp3').innerHTML= '<span style=\'color:green; font-size:20px\'>Wrong Answer</span>'
+        document.getElementById('disp3').innerHTML= '<span style=\'color:red; font-size:20px\'>Wrong Answer</span>'
         document.getElementById('but2').style.visibility='hidden'
     } ">Submit</button><br><br>
+    <div class="collapse">
     <p id="disp4"></p>
     <form name="st"><p id="disp5"></p><input type="text" name="set" id="set" style="visibility: hidden;background-color:''"></form>
     <p id="disp3"></p>   
     <button id="but2" style="visibility:hidden" onclick="process(); p=check();x++;if(x>=2){compare1(p)}">Continue</button><br>
     <p id="disp6"></p>
+    </div>
     </center>
     </section>
     <script src="Experiment.js"></script>
