@@ -94,13 +94,16 @@ function process()
 {
     document.getElementById("but1").style.visibility="hidden"
     document.getElementById("disp4").innerHTML="Now, consider all the tokens with the same 'root' word to be of the same type. Recalculate the number of types."
-    document.getElementById("disp3").innerHTML="#newtypes:"+"<br>"+"<input type='text'>"
+    document.getElementById("disp3").innerHTML=""
+    document.getElementById("set").style.visibility="visible"
+    document.getElementById("disp5").innerHTML="#newtypes:"
     document.getElementById("but2").innerHTML="Submit"
 }
-function stem()
+function check()
 {
     count1 = 0;
     var x = new Array()
+    var x1 = new Array()
     var a=document.getElementById("disp1").innerHTML.toLowerCase().replace(/[^\w\s]/gi,"")
     temp=a.split(" ")
     const a1=temp.filter(temp1=> temp1.trim().length>0);
@@ -118,6 +121,19 @@ function stem()
         x.push(stemmer.getCurrent());            
     }
     console.log(x)
+     for(i=0;i<x.length;i++)
+    {
+        if(!stop.includes(x[i]))
+            x1.push(x[i])
+    }
+    count1 = removeusingSet(x1)
+    function removeusingSet(arr)
+    {
+        let opArray = Array.from(new Set(arr))
+        return opArray.length
+    }
+    console.log(count1)
+    return count1
 }
 
 document.getElementById("but2").addEventListener("click",process);
