@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+
+<body>
+   
+    <select id="choose" onclick="dropdown()">
+        <option value="default">Select Language</option>
+        <option value="English">English</option>
+        <option value="Hindi">Hindi</option>
+    </select>
+    
+                    <select id="english" style="display: none;" >
+                        <option value="default1">Select a sentence</option>
+                        <option value="1">The child liked the chocolate.</option>
+                        <option value="2">She was stopped by the bravest knight.</option>
+                        <option value="3">Mary baked a cake for his birthday.</option>
+                        <option value="5">She decorated the cake carefully.</option>
+                        <option value="5">Mary wore a dress with polka dots.</option>
+                    </select>
+                    <select id="hindi" style="display: none;" onchange="currentSentence()">
+                        <option value="default2">Select a sentence</option>
+                        <option value="6">राम ने सीता के लिए फल तोड़ा।</option>
+                        <option value="7">छोटे बच्चे पाठशाला जल्दी आयेंगे।</option>
+                        <option value="8">मेहनत का फल मीठा होता है।</option>
+                        <option value="9">वाह! वह खूबसूरत है।</option>
+                        <option value="10">पेड़ से पत्ते गिर गए।</option>
+                    </select>
+
+
+   <script src="experiment.js"></script>
+    
+</body>
+</html>
