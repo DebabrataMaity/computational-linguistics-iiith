@@ -1,0 +1,6 @@
+1.We need to insert a drop down to select language such as englsih or hindi as options.
+2.Another dropdown to select sentence.
+3.After splitting the sentence into words,select the parts of speech from the drop down.
+4.sumit and check the parts of speech of each words.
+5.If every selection is correct then it display it as correct.
+6.Else displays wrong,and shows correct result to the user.
